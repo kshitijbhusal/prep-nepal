@@ -1,6 +1,7 @@
 import { BBS } from "../models/bbs.model.js";
 
 const create = async (req, res) => {
+  console.log(req.headers);
   const { program, year } = req.body;
 
   const tobuffer = (buffer) => {
@@ -21,11 +22,16 @@ const create = async (req, res) => {
   });
 };
 
-const get = (req, res) => {
-  const allPaper = BBS.find({});
-  res.json({
-    allPaper,
+const get = async (req, res) => {
+  const { program, year } = req.query;
+  // console.log(req.query);
+
+  const paper = await BBS.findOne({
+    program,
+    year,
   });
+
+  res.send(paper);
 };
 
-export { create };
+export { create, get };

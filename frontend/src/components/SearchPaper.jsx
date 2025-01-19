@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-const SearchPaper = () => {
-  const [paper, setPaper] = useState({});
-
+const SearchPaper = ({ setPaper }) => {
   const {
     register,
     handleSubmit,
@@ -12,13 +10,10 @@ const SearchPaper = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    await axios
-      .get(`http://127.0.0.1:3000/${data.program}`, {
-        params: { year: `${data.year}` },
-      })
-      .then((res) => {
-        setPaper(res.data[0] || {});
-      });
+    const res = await axios.get("http://localhost:3000/paper/get", {
+      params: { program: data.program, year: data.year },
+    });
+    setPaper(res.data);
   };
 
   // ------------------ProgramMapping----------------------//
@@ -28,18 +23,16 @@ const SearchPaper = () => {
     bbs3: "BBS Third Year",
     bbs4: "BBS Fourth Year",
   };
-  const imgUrl =
-    "https://images.unsplash.com/photo-1733159775371-d70b9d6b1057?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   return (
     <div
-      className="h-96 flex justify-around items-center  "
+      className=" bg-red-500 h-96 flex justify-around items-center  "
       // style={{
       //   backgroundImage: `url(${imgUrl})`,
       //   backgroundPosition: "center",
       // }}
     >
-      <div className="p-6 max-w-md mx-auto bg-white rounded-md shadow-md">
+      <div className=" bg-green-400 p-6 w-96 mx-auto bg-white rounded-md shadow-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">
           Search Exam Papers
         </h2>
@@ -92,7 +85,7 @@ const SearchPaper = () => {
         </form>
       </div>
 
-      <div className=" h-52 mx-auto mt-8 px-6 py-6 rounded-md shadow-sm shadow-blue-600 ">
+      {/* <div className=" h-52 mx-auto mt-8 px-6 py-6 rounded-md shadow-sm shadow-blue-600 ">
         <h1 className="text-center text-2xl text-blue-400 font-medium mb-8">
           {programMapping[paper.program] || "Please select your program "}
         </h1>
@@ -107,7 +100,7 @@ const SearchPaper = () => {
             Click here to download
           </a>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

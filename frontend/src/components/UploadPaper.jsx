@@ -11,16 +11,29 @@ const UploadPaper = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const { program } = data;
+    // const { program } = data;
 
-    const res = await axios.post(`http://127.0.0.1:3000/${program}`, data);
-    console.log(res);
+    // Create FormData object
+    const formData = new FormData();
+    formData.append("program", data.program); // Append program
+    formData.append("year", data.year); // Append year
+    formData.append("english", data.english[0]); // Append the file
+
+    const res = await axios.post(
+      "http://localhost:3000/paper/create",
+      formData
+    );
   };
 
   return (
     <div className="p-6 max-w-md mx-auto bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Upload Paper</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        method="post"
+        encType="multipart/form-data"
+        className="space-y-4"
+      >
         {/* Program Field */}
         <div>
           <label className="block text-sm font-medium mb-1" htmlFor="program">
