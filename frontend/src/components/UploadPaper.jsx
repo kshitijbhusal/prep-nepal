@@ -46,6 +46,7 @@ const UploadPaper = () => {
               errors.program ? "border-red-500" : "border-gray-300"
             } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
           >
+            <option>Select your program</option>
             <option value="bbs1">BBS First Year</option>
             <option value="bbs2">BBS Second Year</option>
             <option value="bbs3">BBS Third Year</option>

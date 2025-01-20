@@ -3,11 +3,11 @@ import SearchPaper from "../../components/SearchPaper";
 import ShowPaper from "../../components/ShowPaper";
 
 const Home = () => {
-  const [paper, setPaper] = useState({}); //Lifting the state
+  const [paper, setPaper] = useState(""); //Lifting the state
 
   return (
     <>
-      <div className="bg-pink-500 grid grid-cols-2">
+      <div className=" ">
         <SearchPaper setPaper={setPaper} />
         <ShowPaper paper={paper} />
       </div>

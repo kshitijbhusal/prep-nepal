@@ -26,13 +26,13 @@ const SearchPaper = ({ setPaper }) => {
 
   return (
     <div
-      className=" bg-red-500 h-96 flex justify-around items-center  "
+      className="h-96 flex justify-around items-center  "
       // style={{
       //   backgroundImage: `url(${imgUrl})`,
       //   backgroundPosition: "center",
       // }}
     >
-      <div className=" bg-green-400 p-6 w-96 mx-auto bg-white rounded-md shadow-md">
+      <div className=" border p-6 w-96 mx-auto bg-white rounded-md shadow-xl">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">
           Search Exam Papers
         </h2>

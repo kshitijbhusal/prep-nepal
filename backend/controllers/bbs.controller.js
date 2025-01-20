@@ -4,11 +4,11 @@ const create = async (req, res) => {
   console.log(req.headers);
   const { program, year } = req.body;
 
-  const tobuffer = (buffer) => {
+  const tobase64 = (buffer) => {
     return buffer.toString("base64");
   };
 
-  const englishData = await tobuffer(req.file.buffer);
+  const englishData = await tobase64(req.file.buffer);
 
   const paper = await BBS.create({
     program,

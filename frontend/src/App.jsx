@@ -11,8 +11,7 @@ const App = () => {
       <div>
         <Header />
         <Home />
-        {/* <SearchPaper />
-        <ShowPaper /> */}
+
         {/* <UploadPaper /> */}
       </div>
     </>
