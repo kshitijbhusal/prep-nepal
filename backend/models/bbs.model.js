@@ -15,6 +15,22 @@ const bbsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  subject2: {
+    type: String,
+    required: true,
+  },
+  subject3: {
+    type: String,
+    required: true,
+  },
+  subject4: {
+    type: String,
+    required: true,
+  },
+  subject5: {
+    type: String,
+    required: true,
+  },
 });
 
 export const BBS = mongoose.model("BBS", bbsSchema);

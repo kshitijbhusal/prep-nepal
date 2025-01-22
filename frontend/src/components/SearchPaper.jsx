@@ -16,13 +16,7 @@ const SearchPaper = ({ setPaper }) => {
     setPaper(res.data);
   };
 
-  // ------------------ProgramMapping----------------------//
-  const programMapping = {
-    bbs1: "BBS First Year",
-    bbs2: "BBS Second Year",
-    bbs3: "BBS Third Year",
-    bbs4: "BBS Fourth Year",
-  };
+  // ------------------ProgramMapping---------------------//
 
   return (
     <div
@@ -39,7 +33,7 @@ const SearchPaper = ({ setPaper }) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <label className="block text-gray-700 font-medium mb-2">
-              Select Your Program
+              Select Your Programme
             </label>
 
             <select

@@ -11,6 +11,7 @@ const UploadPaper = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     // const { program } = data;
 
     // Create FormData object
@@ -18,6 +19,11 @@ const UploadPaper = () => {
     formData.append("program", data.program); // Append program
     formData.append("year", data.year); // Append year
     formData.append("english", data.english[0]); // Append the file
+    formData.append("subject2", data.subject2[0]);
+    formData.append("subject3", data.subject3[0]);
+    formData.append("subject4", data.subject4[0]);
+    formData.append("subject5", data.subject5[0]);
+    // formData.append("subject2", data.subject2[0]);
 
     const res = await axios.post(
       "http://localhost:3000/paper/create",
@@ -91,11 +97,91 @@ const UploadPaper = () => {
             id="english"
             type="file"
             {...register("english", {
-              required: "paper is required",
+              required: "pdf file required",
             })}
             className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          {errors.paper && (
+          {errors.english && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.english.message}
+            </p>
+          )}
+        </div>
+
+        {/* Subject-2 Field */}
+        <div>
+          <label className="block text-sm font-medium mb-1" htmlFor="subject2">
+            Subject-2
+          </label>
+          <input
+            id="subject2"
+            type="file"
+            {...register("subject2", {
+              required: "pdf file required",
+            })}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          {errors.subject2 && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.english.message}
+            </p>
+          )}
+        </div>
+
+        {/* Subject-3 Field */}
+        <div>
+          <label className="block text-sm font-medium mb-1" htmlFor="subject3">
+            Subject-3
+          </label>
+          <input
+            id="subject3"
+            type="file"
+            {...register("subject3", {
+              required: "pdf file required",
+            })}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          {errors.subject3 && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.english.m4ssage}
+            </p>
+          )}
+        </div>
+
+        {/* Subject-4 Field */}
+        <div>
+          <label className="block text-sm font-medium mb-1" htmlFor="subject4">
+            Subject-4
+          </label>
+          <input
+            id="subject4"
+            type="file"
+            {...register("subject4", {
+              required: "pdf file required",
+            })}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          {errors.subject4 && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.english.message}
+            </p>
+          )}
+        </div>
+
+        {/* Subject-5 Field */}
+        <div>
+          <label className="block text-sm font-medium mb-1" htmlFor="subject5">
+            Subject-5
+          </label>
+          <input
+            id="subject5"
+            type="file"
+            {...register("subject5", {
+              required: "pdf file required",
+            })}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          {errors.subject5 && (
             <p className="text-red-500 text-sm mt-1">
               {errors.english.message}
             </p>
