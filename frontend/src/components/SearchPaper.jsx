@@ -14,6 +14,7 @@ const SearchPaper = ({ setPaper }) => {
       params: { program: data.program, year: data.year },
     });
     setPaper(res.data);
+    console.log(res.data);
   };
 
   // ------------------ProgramMapping---------------------//
